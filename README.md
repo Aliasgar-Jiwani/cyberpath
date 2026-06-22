@@ -1,8 +1,7 @@
-# CyberPath 🛡️
+# Cyber Path 🛡️
 
-**Interactive Cybersecurity Education for MCA Students**
+**Interactive Cybersecurity Education**
 
-**Course:** SMC3TE301 · Cyber Security · Semester III  
 **Author:** Aliasgar Jiwani
 
 ![CyberPath Dashboard Preview](src/assets/hero.png) <!-- Update placeholder image path as needed -->
