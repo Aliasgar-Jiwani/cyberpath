@@ -14,7 +14,7 @@ export default function App() {
   const [completedLessons, setCompletedLessons] = useState(new Set());
   const [visitedTabs, setVisitedTabs] = useState({}); // { lessonId: Set(['concept', 'visual']) }
 
-  // Load progress from localStorage on mount
+  // Load progress from localStorage on mount + set up browser history
   useEffect(() => {
     try {
       const savedCompleted = localStorage.getItem('cyberpath_completed_lessons');
@@ -34,6 +34,35 @@ export default function App() {
     } catch (e) {
       console.error('Error loading progress from localStorage:', e);
     }
+
+    // Replace the initial history entry with the dashboard state so
+    // the very first back press doesn't leave the site with no state.
+    window.history.replaceState(
+      { view: 'dashboard', unitId: null, lessonId: null },
+      ''
+    );
+  }, []);
+
+  // Listen for browser back / forward button (popstate)
+  useEffect(() => {
+    const handlePopState = (event) => {
+      const state = event.state;
+      if (state) {
+        window.scrollTo(0, 0);
+        setCurrentView(state.view);
+        setCurrentUnit(state.unitId);
+        setCurrentLesson(state.lessonId);
+      } else {
+        // No state means we're at the very beginning — show dashboard
+        window.scrollTo(0, 0);
+        setCurrentView('dashboard');
+        setCurrentUnit(null);
+        setCurrentLesson(null);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   // Save completed lessons to localStorage when it changes
@@ -60,12 +89,18 @@ export default function App() {
     }
   };
 
-  // Handlers
+  // Handlers — push a history entry for every in-app navigation
   const handleNavigate = (view, unitId = null, lessonId = null) => {
     window.scrollTo(0, 0);
     setCurrentView(view);
     if (unitId) setCurrentUnit(unitId);
     if (lessonId) setCurrentLesson(lessonId);
+
+    // Push new entry so the browser back button can return here
+    window.history.pushState(
+      { view, unitId, lessonId },
+      ''
+    );
   };
 
   const handleLessonComplete = (lessonId) => {
