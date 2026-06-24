@@ -30,7 +30,7 @@ export default function IDSVisual() {
       <div className="visual-canvas flex-col gap-4">
         <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wider">Network Security Dashboard (NIDS)</h3>
 
-        <div className="w-full bg-bg rounded-xl border border-border overflow-hidden">
+        <div className="w-full bg-bg rounded-xl border border-border overflow-hidden overflow-x-auto -webkit-overflow-scrolling-touch">
           {/* Dashboard header */}
           <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-surface">
             <span className="text-xs font-mono text-text-secondary">LIVE FEED</span>

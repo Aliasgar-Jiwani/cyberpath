@@ -35,7 +35,7 @@ export default function RSAWalkthrough() {
       </div>
 
       {/* Current step */}
-      <div className="bg-bg rounded-xl border border-border p-5 mb-4" key={currentStep}>
+      <div className="bg-bg rounded-xl border border-border p-3 sm:p-5 mb-4" key={currentStep}>
         <div className="animate-fade-in">
           <p className="text-xs text-primary uppercase tracking-wider mb-1">{rsaSteps[currentStep].title}</p>
           <p className="text-sm text-text-secondary mb-3">{rsaSteps[currentStep].desc}</p>

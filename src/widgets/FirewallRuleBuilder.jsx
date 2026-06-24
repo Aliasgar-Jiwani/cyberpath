@@ -21,7 +21,7 @@ export default function FirewallRuleBuilder() {
       </div>
 
       <div className="overflow-x-auto border border-border rounded-xl">
-        <table className="w-full text-left text-sm">
+        <table className="w-full text-left text-sm min-w-[500px]">
           <thead className="bg-surface text-text-secondary text-xs uppercase tracking-wider">
             <tr>
               <th className="px-4 py-3 border-b border-border">Action</th>

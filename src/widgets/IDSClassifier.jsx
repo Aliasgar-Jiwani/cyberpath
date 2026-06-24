@@ -29,7 +29,7 @@ export default function IDSClassifier() {
         {scenarios.map((s, idx) => (
           <div key={idx} className={`p-4 rounded-xl border transition-all ${checked[idx] ? 'border-border' : 'border-border bg-bg'}`}>
             <p className="text-sm mb-3 font-medium">{idx + 1}. {s.text}</p>
-            <div className="grid grid-cols-2 gap-2 mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
               <div>
                 <p className="text-[10px] text-text-secondary mb-1">Detection Method:</p>
                 <div className="flex gap-1">

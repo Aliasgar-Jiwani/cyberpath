@@ -125,13 +125,13 @@ export default function LessonPage({ lessonId, unitId, onNavigate, onComplete, v
         </div>
       </header>
 
-      <div className="max-w-4xl mx-auto px-4 py-6">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
         {/* Lesson Title */}
         <div className="mb-6 animate-fade-in">
           <span className="text-xs font-semibold text-primary uppercase tracking-wider">
             Lesson {lessonId}
           </span>
-          <h2 className="text-xl md:text-2xl font-extrabold mt-1">{lesson.title}</h2>
+          <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold mt-1">{lesson.title}</h2>
         </div>
 
         {/* Tabs */}

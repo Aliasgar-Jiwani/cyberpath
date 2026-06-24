@@ -21,37 +21,36 @@ export default function CaesarVisual() {
 
   return (
     <div className="space-y-6">
-      <div className="visual-canvas flex-col gap-6">
+      <div className="visual-canvas flex-col gap-6" style={{ overflow: 'hidden' }}>
         <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wider">Caesar Cipher Encryption</h3>
 
         {/* Shift control */}
-        <div className="flex items-center gap-3">
-          <span className="text-sm text-text-secondary">Shift:</span>
+        <div className="flex items-center gap-3 w-full">
+          <span className="text-sm text-text-secondary flex-shrink-0">Shift:</span>
           <input
             type="range"
             min="1"
             max="25"
             value={shift}
             onChange={(e) => setShift(Number(e.target.value))}
-            className="flex-1 accent-primary"
+            className="flex-1 accent-primary min-w-0"
           />
-          <span className="font-mono text-primary font-bold w-6 text-center">{shift}</span>
+          <span className="font-mono text-primary font-bold w-6 text-center flex-shrink-0">{shift}</span>
         </div>
 
         {/* Step-by-step flow */}
-        <div className="flex flex-col md:flex-row items-center gap-3 w-full">
+        <div className="flex flex-col items-center gap-3 w-full">
           {steps.map((s, i) => (
             <React.Fragment key={i}>
-              {i > 0 && <span className="text-2xl text-text-secondary hidden md:block">→</span>}
-              {i > 0 && <span className="text-xl text-text-secondary md:hidden">↓</span>}
+              {i > 0 && <span className="text-xl text-text-secondary">↓</span>}
               <div
-                className={`flex-1 w-full p-4 rounded-xl border text-center transition-all cursor-pointer ${
-                  step === i ? 'border-primary bg-primary-dim scale-105' : 'border-border bg-surface'
+                className={`w-full p-3 sm:p-4 rounded-xl border text-center transition-all cursor-pointer ${
+                  step === i ? 'border-primary bg-primary-dim scale-[1.02]' : 'border-border bg-surface'
                 }`}
                 onClick={() => setStep(i)}
               >
                 <p className="text-xs text-text-secondary uppercase mb-1">{s.label}</p>
-                <p className="font-mono font-bold text-lg tracking-widest" style={{ color: s.color }}>
+                <p className="font-mono font-bold text-base sm:text-lg tracking-widest break-all" style={{ color: s.color }}>
                   {s.value}
                 </p>
               </div>
@@ -59,8 +58,28 @@ export default function CaesarVisual() {
           ))}
         </div>
 
-        {/* Alphabet visualization */}
-        <div className="w-full overflow-x-auto">
+        {/* Alphabet visualization — Mobile: two-row grid, Desktop: full row */}
+        {/* Mobile version: compact grid */}
+        <div className="w-full sm:hidden">
+          <p className="text-xs text-text-secondary mb-2 text-center">Alphabet Mapping (Shift {shift})</p>
+          <div className="grid grid-cols-9 gap-1">
+            {alphabet.split('').map((ch, i) => {
+              const shiftedChar = alphabet[(i + shift) % 26];
+              const isHighlightPlain = plaintext.includes(ch);
+              const isHighlightCipher = encrypted.includes(shiftedChar) && isHighlightPlain;
+              return (
+                <div key={i} className={`flex flex-col items-center rounded-md py-1 ${isHighlightPlain ? 'bg-surface border border-border' : ''}`}>
+                  <span className={`text-[10px] font-mono ${isHighlightPlain ? 'text-primary font-bold' : 'text-text-secondary/60'}`}>{ch}</span>
+                  <span className="text-[8px] text-text-secondary/40">↓</span>
+                  <span className={`text-[10px] font-mono ${isHighlightCipher ? 'text-secondary font-bold' : 'text-text-secondary/60'}`}>{shiftedChar}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Desktop version: full horizontal rows */}
+        <div className="w-full hidden sm:block overflow-x-auto">
           <div className="space-y-2 min-w-[500px]">
             <div className="flex gap-0.5">
               <span className="text-xs text-text-secondary w-14 flex-shrink-0">Plain:</span>

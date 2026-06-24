@@ -67,7 +67,7 @@ export default function PasswordChecker() {
           </div>
 
           {/* Checks */}
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {[
               { key: 'length', label: '12+ characters' },
               { key: 'uppercase', label: 'Uppercase (A-Z)' },

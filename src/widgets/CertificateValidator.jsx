@@ -67,13 +67,13 @@ export default function CertificateValidator() {
       </div>
 
       {/* Certificate display */}
-      <div className="bg-bg rounded-xl border border-border p-4 mb-4 space-y-2 text-sm" key={currentCert}>
-        <div className="flex justify-between"><span className="text-text-secondary">Subject:</span> <span className="font-mono">{cert.subject}</span></div>
-        <div className="flex justify-between"><span className="text-text-secondary">Issuer:</span> <span className="font-mono">{cert.issuer}</span></div>
-        <div className="flex justify-between"><span className="text-text-secondary">Valid From:</span> <span className="font-mono">{cert.validFrom}</span></div>
-        <div className="flex justify-between"><span className="text-text-secondary">Valid To:</span> <span className="font-mono">{cert.validTo}</span></div>
-        <div className="flex justify-between"><span className="text-text-secondary">Browsing To:</span> <span className="font-mono text-highlight">{cert.domain}</span></div>
-        <div className="flex justify-between"><span className="text-text-secondary">CA Trusted?</span> <span className={cert.trustedCA ? 'text-secondary' : 'text-danger'}>{cert.trustedCA ? 'Yes ✓' : 'No ✗'}</span></div>
+      <div className="bg-bg rounded-xl border border-border p-3 sm:p-4 mb-4 space-y-2 text-sm" key={currentCert}>
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-0.5"><span className="text-text-secondary">Subject:</span> <span className="font-mono break-all">{cert.subject}</span></div>
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-0.5"><span className="text-text-secondary">Issuer:</span> <span className="font-mono break-all">{cert.issuer}</span></div>
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-0.5"><span className="text-text-secondary">Valid From:</span> <span className="font-mono">{cert.validFrom}</span></div>
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-0.5"><span className="text-text-secondary">Valid To:</span> <span className="font-mono">{cert.validTo}</span></div>
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-0.5"><span className="text-text-secondary">Browsing To:</span> <span className="font-mono text-highlight break-all">{cert.domain}</span></div>
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-0.5"><span className="text-text-secondary">CA Trusted?</span> <span className={cert.trustedCA ? 'text-secondary' : 'text-danger'}>{cert.trustedCA ? 'Yes ✓' : 'No ✗'}</span></div>
       </div>
 
       {/* Answer buttons */}

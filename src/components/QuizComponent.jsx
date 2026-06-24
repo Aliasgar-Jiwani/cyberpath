@@ -91,7 +91,7 @@ export default function QuizComponent({ questions, onComplete }) {
         ))}
       </div>
 
-      <div className="bg-surface/40 rounded-3xl p-6 md:p-8 border border-border/60 shadow-lg mb-6 relative overflow-hidden">
+      <div className="bg-surface/40 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-border/60 shadow-lg mb-6 relative overflow-hidden">
          {/* Decorative subtle background element */}
          <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
          
@@ -137,7 +137,7 @@ export default function QuizComponent({ questions, onComplete }) {
                 key={i}
                 onClick={() => handleAnswer(i)}
                 disabled={showFeedback}
-                className={`w-full text-left px-5 py-4 rounded-xl border-2 transition-all duration-300 ${borderClass} ${bgClass} ${
+                className={`w-full text-left px-3 sm:px-5 py-3 sm:py-4 rounded-xl border-2 transition-all duration-300 ${borderClass} ${bgClass} ${
                   showFeedback ? 'cursor-default' : 'cursor-pointer hover:-translate-y-0.5 hover:shadow-md'
                 }`}
               >

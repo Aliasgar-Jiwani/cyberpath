@@ -37,17 +37,17 @@ export default function X509Visual() {
               <button
                 key={field.key}
                 onClick={() => setActiveField(activeField === field.key ? null : field.key)}
-                className={`w-full text-left px-5 py-3 hover:bg-surface-hover transition-all ${
+                className={`w-full text-left px-3 sm:px-5 py-3 hover:bg-surface-hover transition-all ${
                   activeField === field.key ? 'bg-primary-dim' : ''
                 }`}
               >
-                <div className="flex items-start justify-between gap-4">
-                  <span className="text-xs font-semibold text-highlight w-28 flex-shrink-0">{field.label}</span>
-                  <span className="text-xs font-mono text-text-secondary flex-1 truncate">{field.value}</span>
-                  <span className="text-xs text-text-secondary">{activeField === field.key ? '▼' : '▶'}</span>
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4">
+                  <span className="text-xs font-semibold text-highlight sm:w-28 flex-shrink-0">{field.label}</span>
+                  <span className="text-xs font-mono text-text-secondary flex-1 break-all sm:truncate">{field.value}</span>
+                  <span className="text-xs text-text-secondary hidden sm:block">{activeField === field.key ? '▼' : '▶'}</span>
                 </div>
                 {activeField === field.key && (
-                  <p className="text-xs text-text-secondary mt-2 leading-relaxed animate-fade-in pl-28">
+                  <p className="text-xs text-text-secondary mt-2 leading-relaxed animate-fade-in sm:pl-28">
                     💡 {field.desc}
                   </p>
                 )}

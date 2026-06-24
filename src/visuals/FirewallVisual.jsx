@@ -48,7 +48,7 @@ export default function FirewallVisual() {
         <h3 className="text-sm font-semibold text-text-secondary uppercase tracking-wider">Firewall Network Topology</h3>
 
         {/* Topology */}
-        <div className="flex items-center justify-between w-full max-w-xl mx-auto flex-wrap gap-2">
+        <div className="grid grid-cols-3 sm:flex sm:items-center sm:justify-between w-full max-w-xl mx-auto gap-2 sm:gap-0">
           {topology.map((comp, i) => (
             <React.Fragment key={comp.id}>
               {i > 0 && <span className="text-text-secondary text-lg hidden sm:block">→</span>}

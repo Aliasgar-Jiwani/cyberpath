@@ -31,7 +31,7 @@ export default function UnitPage({ unitId, onNavigate, completedLessons }) {
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="border-b border-border/60 backdrop-blur-md bg-bg/80 sticky top-0 z-30">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center gap-4">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
           <button
             onClick={() => onNavigate('dashboard')}
             className="flex items-center gap-1.5 text-text-secondary hover:text-primary transition-colors text-sm font-medium group"
@@ -42,16 +42,16 @@ export default function UnitPage({ unitId, onNavigate, completedLessons }) {
         </div>
       </header>
 
-      <div className="max-w-4xl mx-auto px-6 py-10 w-full flex-1">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full flex-1">
         {/* Unit Header */}
-        <div className="animate-fade-in mb-10">
-          <div className="flex items-start gap-5 mb-6">
-            <div className={`w-16 h-16 rounded-2xl ${accent.iconBg} flex items-center justify-center flex-shrink-0 border ${accent.pillBorder}`}>
-              <Icon className={`w-8 h-8 ${accent.iconText}`} />
+        <div className="animate-fade-in mb-8 sm:mb-10">
+          <div className="flex items-start gap-3 sm:gap-5 mb-5 sm:mb-6">
+            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl ${accent.iconBg} flex items-center justify-center flex-shrink-0 border ${accent.pillBorder}`}>
+              <Icon className={`w-6 h-6 sm:w-8 sm:h-8 ${accent.iconText}`} />
             </div>
             <div>
               <span className={`text-xs font-bold ${accent.label} uppercase tracking-widest`}>Unit {unit.id}</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mt-1 leading-tight">{unit.title}</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight mt-1 leading-tight">{unit.title}</h2>
             </div>
           </div>
 
@@ -82,10 +82,10 @@ export default function UnitPage({ unitId, onNavigate, completedLessons }) {
               <button
                 key={lesson.id}
                 onClick={() => onNavigate('lesson', unitId, lesson.id)}
-                className="w-full text-left bg-surface rounded-xl p-5 flex items-center gap-5 group border border-border/50 transition-all duration-300 hover:border-border-hover hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5"
+                className="w-full text-left bg-surface rounded-xl p-4 sm:p-5 flex items-center gap-3 sm:gap-5 group border border-border/50 transition-all duration-300 hover:border-border-hover hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5"
               >
                 {/* Lesson number */}
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-sm font-bold transition-all duration-300 ${
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 text-xs sm:text-sm font-bold transition-all duration-300 ${
                   isCompleted
                     ? 'bg-secondary/15 text-secondary border border-secondary/20'
                     : `${accent.iconBg} ${accent.iconText} border ${accent.pillBorder}`
@@ -95,10 +95,10 @@ export default function UnitPage({ unitId, onNavigate, completedLessons }) {
 
                 {/* Content */}
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-[15px] font-semibold text-text group-hover:text-primary transition-colors truncate leading-snug">
+                  <h4 className="text-[14px] sm:text-[15px] font-semibold text-text group-hover:text-primary transition-colors truncate leading-snug">
                     {lesson.title}
                   </h4>
-                  <div className="flex items-center gap-2 mt-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2 mt-1.5 sm:mt-2 flex-wrap">
                     <span className="text-[10px] font-semibold bg-primary/10 text-primary px-2.5 py-0.5 rounded-md border border-primary/15">Concept</span>
                     <span className="text-[10px] font-semibold bg-highlight/10 text-highlight px-2.5 py-0.5 rounded-md border border-highlight/15">Visual</span>
                     <span className="text-[10px] font-semibold bg-secondary/10 text-secondary px-2.5 py-0.5 rounded-md border border-secondary/15">Try It</span>

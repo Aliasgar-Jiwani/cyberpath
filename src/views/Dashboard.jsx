@@ -70,23 +70,23 @@ export default function Dashboard({ onNavigate, completedLessons }) {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-6 flex-1 w-full flex flex-col pt-16 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex-1 w-full flex flex-col pt-8 sm:pt-16 pb-24">
         {/* Hero */}
-        <section className="text-center mb-24 animate-fade-in-up">
+        <section className="text-center mb-12 sm:mb-24 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-text-secondary mb-8 shadow-sm backdrop-blur-sm hover:bg-white/10 transition-colors cursor-default">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="tracking-wide">Interactive Learning Experience</span>
           </div>
-          <h2 className="text-6xl md:text-7xl font-black mb-8 tracking-tight leading-[1.1]">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-black mb-5 sm:mb-8 tracking-tight leading-[1.1]">
             Learn. <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-violet-400 to-indigo-400">Visualize.</span> Practice.
           </h2>
-          <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-text-secondary text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium px-2">
             Master cybersecurity concepts through interactive visualisations, real-world scenarios, and hands-on practice.
           </p>
         </section>
 
         {/* Trail & Nodes */}
-        <section className="mb-24 relative max-w-4xl mx-auto w-full px-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <section className="mb-12 sm:mb-24 relative max-w-4xl mx-auto w-full px-2 sm:px-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <div className="absolute top-1/2 left-0 w-full h-1.5 bg-white/5 -translate-y-1/2 rounded-full hidden sm:block" />
           
           <div className="flex flex-col sm:flex-row items-center justify-between gap-8 sm:gap-0 relative z-10">
@@ -128,7 +128,7 @@ export default function Dashboard({ onNavigate, completedLessons }) {
         </section>
 
         {/* Unit Cards Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 stagger-children">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 stagger-children">
           {units.map((unit) => {
             const Icon = iconMap[unit.icon] || Shield;
             const unitLessons = unit.lessons.map(l => l.id);
@@ -150,8 +150,8 @@ export default function Dashboard({ onNavigate, completedLessons }) {
                 {/* Top Border Highlight */}
                 <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${accent.gradient} opacity-40 group-hover:opacity-100 transition-opacity duration-500`} />
 
-                <div className="p-8 flex-1 flex flex-col relative z-10">
-                  <div className="flex items-start justify-between mb-8">
+                <div className="p-5 sm:p-8 flex-1 flex flex-col relative z-10">
+                  <div className="flex items-start justify-between mb-5 sm:mb-8">
                     <div className={`w-14 h-14 rounded-2xl ${accent.bg} border ${accent.border} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500 shadow-inner`}>
                       <Icon className={`w-7 h-7 ${accent.text}`} />
                     </div>
@@ -161,8 +161,8 @@ export default function Dashboard({ onNavigate, completedLessons }) {
                   </div>
 
                   <span className={`text-xs font-black ${accent.text} uppercase tracking-widest mb-3 block`}>Unit {unit.id}</span>
-                  <h3 className="text-2xl font-bold text-white leading-tight mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/70 transition-all">{unit.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed mb-8 flex-1">{unit.description}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight mb-3 sm:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/70 transition-all">{unit.title}</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed mb-5 sm:mb-8 flex-1">{unit.description}</p>
 
                   <div className="mt-auto pt-6 border-t border-white/5">
                     <div className="flex items-center justify-between text-sm font-medium mb-6">
